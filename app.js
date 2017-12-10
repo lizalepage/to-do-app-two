@@ -18,17 +18,32 @@ function onReady(){
     // set the input's type to checkbox
     checkbox.type ="checkbox";
 
+    // create a new delete input
+    let deleteButton = document.createElement('input');
+
+    // set input's type to delete
+    deleteButton.type="button";
+
+    deleteButton.value="Delete";
+
     // set the title
     newLi.textContent = title;
 
     // attach the checkbox to the li
     newLi.appendChild(checkbox);
 
+    // attach the deleteButton to the li
+    newLi.appendChild(deleteButton);
+
     // attach the li at the ul
     toDoList.appendChild(newLi);
 
     //empty the input
     newToDoText.value ="";
+
+    deleteButton.onclick=function(){
+        newLi.parentNode.removeChild(newLi);
+      }
   });
 
 }
