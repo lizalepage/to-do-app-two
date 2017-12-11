@@ -10,18 +10,20 @@ function onReady(){
     toDos.push({
       title: newToDoText.value,
       complete: false,
-      id: id.value
+      id: id++
     });
 
-    toDos.id++;
+
 
     newToDoText.value = "";
 
     renderTheUI();
   }
 
-  function deleteToDo (id) {
-    return toDos = toDos.filter(item => item.id !== id);
+  function deleteToDo(x) {
+    toDos = toDos.filter(item => item.id !== x);
+    return toDos;
+
 
   };
 
@@ -47,8 +49,8 @@ function onReady(){
       newLi.appendChild(deleteButton);
 
 
-      deleteButton.addEventListener('submit', event => {
-      event.deleteToDo(toDo.id);
+      deleteButton.addEventListener('click', event => {
+      deleteToDo(toDo.id);
       renderTheUI();
       });
 
